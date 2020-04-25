@@ -1,5 +1,4 @@
 <?php
-
 	$pattern="";
 	$text="";
 	$replaceText="";
@@ -8,9 +7,10 @@
 	$match="Not checked yet.";
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-	$pattern=$_POST["pattern"];
-	$text=$_POST["text"];
-	$replaceText=$_POST["replaceText"];
+	$pattern=preg_replace('/\s+/','', $_POST["pattern"]);
+	$text=preg_replace('/\s+/','', $_POST["text"]);
+	$replaceText=preg_replace('/\s+/','', $_POST["replaceText"]);
+
 
 	$replacedText=preg_replace($pattern, $replaceText, $text);
 
